@@ -83,12 +83,10 @@ describe("`guessWord` action creator call", () => {
     submitButton.simulate("click", { preventDefault() {} });
   });
   it("should call `guess word` when button is clicked", () => {
-    const guessWordCallCount = guessWordMock.mock.calls.length;
-    expect(guessWordCallCount).toBe(1);
+    expect(guessWordMock).toHaveBeenCalled();
   });
   test("should call `guessWord with input value as argument`", () => {
-    const guessWordArg = guessWordMock.mock.calls[0][0];
-    expect(guessWordArg).toBe(guessedWord);
+    expect(guessWordMock).toHaveBeenCalledWith(guessedWord);
   });
   test("should clear input box on submit", () => {
     expect(wrapper.state("currentGuess")).toBe("");

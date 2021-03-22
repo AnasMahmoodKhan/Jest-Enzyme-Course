@@ -11,13 +11,14 @@ export class UnconnectedApp extends Component {
     this.props.getSecretWord();
   }
   render() {
+    const { secretWord, success, guessedWords } = this.props;
     return (
       <div className="container text-center">
         <h1>Jotto</h1>
-        <div>The Secret Word is {this.props.secretWord}</div>
-        <Congrats success={this.props.success} />
+        <div>The Secret Word is {secretWord}</div>
+        <Congrats success={success} />
         <Input />
-        <GuessedWords guessedWords={this.props.guessedWords} />
+        <GuessedWords guessedWords={guessedWords} />
       </div>
     );
   }

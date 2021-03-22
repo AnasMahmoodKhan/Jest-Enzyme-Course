@@ -22,14 +22,16 @@ export class UnconnectedInput extends Component {
   }
 
   render() {
-    const contents = this.props.success ? null : (
+    const { success } = this.props;
+    const { currentGuess } = this.state;
+    const contents = success ? null : (
       <form className="form-inline">
         <input
           data-test="input-box"
           className="mb-2 mx-sm-3"
           id="word-guess"
           type="text"
-          value={this.state.currentGuess}
+          value={currentGuess}
           onChange={(evt) => this.setState({ currentGuess: evt.target.value })}
           placeholder="enter guess"
         />

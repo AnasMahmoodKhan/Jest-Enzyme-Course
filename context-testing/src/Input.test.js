@@ -30,4 +30,15 @@ describe("state controlled input field", () => {
 
     expect(mockSetCurrentGuess).toHaveBeenCalledWith("train");
   });
+  test("should clear field upon submit click", () => {
+    const mockSetCurrentGuess = jest.fn();
+    React.useState = jest.fn(() => ["", mockSetCurrentGuess]);
+
+    const wrapper = setup();
+    const submitButton = findByTestAttr(wrapper, "submit-button");
+
+    submitButton.simulate("click");
+
+    expect(mockSetCurrentGuess).toHaveBeenCalledWith("");
+  });
 });

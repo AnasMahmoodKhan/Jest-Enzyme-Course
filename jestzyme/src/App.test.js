@@ -8,6 +8,5 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 test("Jest Enzyme Basic Tests", () => {
   const wrapper = shallow(<App />);
-  console.log(wrapper.debug());
   expect(wrapper).toHaveLength(1);
 });

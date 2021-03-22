@@ -11,6 +11,13 @@ const setup = (initialState = {}) => {
   return wrapper;
 };
 
+describe("App component", () => {
+  test("should render component without error", () => {
+    const wrapper = setup();
+    expect(wrapper.find("h1").text()).toBe("Jotto");
+  });
+});
+
 describe("redux properties", () => {
   test("should have access to `success` state", () => {
     const success = true;
@@ -46,7 +53,7 @@ test("should `getSecretWord` runs on App mount", () => {
   const props = {
     getSecretWord: getSecretWordMock,
     success: false,
-    guessedWords : [],
+    guessedWords: [],
   };
 
   const wrapper = shallow(<UnconnectedApp {...props} />);
